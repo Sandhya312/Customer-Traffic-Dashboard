@@ -1,0 +1,21 @@
+{
+  "name": "customer-traffic-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+"scripts": {
+  "predev": "npm install && npm install --workspaces",
+  "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+  "dev:frontend": "npm run dev --workspace=@customer-traffic/frontend",
+  "dev:backend": "npm run dev --workspace=@customer-traffic/backend",
+  "build": "npm run build --workspaces",
+  "build:frontend": "npm run build --workspace=@customer-traffic/frontend",
+  "build:backend": "npm run build --workspace=@customer-traffic/backend"
+},
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.2.2"
+  }
+}
